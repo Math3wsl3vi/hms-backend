@@ -1,12 +1,12 @@
-import express from "express";
-import { db } from "../configs/index"; 
+import express, { Request, Response } from "express"; 
 import { eq, or } from "drizzle-orm";
-import { patients } from "../configs/schema"; 
+import { patients } from "../src/configs/schema"; 
+import { db } from "../src/configs";
 
 
 const router = express.Router();
 
-router.post("/", async (req,res) => {
+router.post("/", async (req: Request,res:Response):Promise<void> => {
   try {
     const body = req.body;
 
